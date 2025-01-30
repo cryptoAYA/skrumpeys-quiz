@@ -4,7 +4,7 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(120deg, #bda00f, #000000);
+  background: linear-gradient(120deg, #bda7cc, #a1055c);
   color: #fff;
 }
 
@@ -12,7 +12,7 @@ body {
 h1 {
   text-align: center;
   margin: 30px 0 20px;
-  color: #bda00f;
+  color: #a1055c;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -26,17 +26,17 @@ form {
 
 /* Question Card Style */
 .card {
-  background-color: #000000;
+  background-color: #570332;
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 3px 8px rgba(189,160,15,0.4);
+  box-shadow: 0 3px 8px rgba(161,5,92,0.4);
 }
 
 .card p {
   margin-bottom: 10px;
   font-weight: 500;
-  color: #bda00f;
+  color: #a1055c;
 }
 
 label {
@@ -55,8 +55,8 @@ label {
 /* Submit / Restart Buttons */
 .submit-btn, #restart-btn {
   padding: 12px 20px;
-  background-color: #bda00f;
-  color: #000000;
+  background-color: #a1055c;
+  color: #fff;
   border: none;
   cursor: pointer;
   border-radius: 8px;
@@ -72,7 +72,7 @@ label {
 .small-creator {
   margin-top: 8px;
   font-size: 0.8rem; 
-  color: #bda00f;
+  color: #a1055c;
 }
 
 /* Modal (Popup) Style */
@@ -91,13 +91,13 @@ label {
 .modal-content {
   position: relative;
   margin: 10% auto;
-  background-color: #000000;
+  background-color: #570332;
   width: 90%;
   max-width: 400px;
   padding: 30px 20px;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(189,160,15,0.5);
+  box-shadow: 0 5px 15px rgba(161,5,92,0.5);
 }
 
 /* Modal Close Button */
@@ -108,7 +108,7 @@ label {
   cursor: pointer;
   font-size: 25px;
   font-weight: bold;
-  color: #bda00f;
+  color: #a1055c;
   transition: color 0.3s;
 }
 
@@ -121,7 +121,7 @@ label {
   width: 100%;
   max-width: 250px;
   margin-top: 20px;
-  border: 2px solid #bda00f;
+  border: 2px solid #a1055c;
   border-radius: 10px;
 }
 
@@ -130,5 +130,5 @@ label {
   margin-top: 15px;
   font-size: 1.1em;
   font-weight: 600;
-  color: #bda00f;
+  color: #a1055c;
 }
