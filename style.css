@@ -1,307 +1,134 @@
-/* General Page Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  /* Arka planı mor tonlarında degradeye çevirdik */
-  background: linear-gradient(to bottom, #8e44ad, #9b59b6);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #bda00f, #000000);
+  color: #fff;
+}
+
+/* Page Title */
+h1 {
   text-align: center;
-  color: #fff; /* Metin rengini beyaz tutarak kontrast sağlıyoruz */
+  margin: 30px 0 20px;
+  color: #bda00f;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-.slot-title {
-  margin: 20px 0;
-  font-size: 48px;
-  /* Başlık rengini fuşya/pembe tonuna çektik */
-  color: #ff66ff;
-  text-shadow: 2px 2px #333;
-  animation: flicker 1.5s infinite;
+/* Form Area */
+form {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Flicker Animasyonu */
-@keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow:
-      0 0 4px #ff66ff,
-      0 0 11px #ff66ff,
-      0 0 19px #ff66ff,
-      0 0 40px #ff66ff,
-      0 0 80px #ff66ff,
-      0 0 90px #ff66ff,
-      0 0 100px #ff66ff,
-      0 0 150px #ff66ff;
-  }
-  20%, 24%, 55% {
-    text-shadow: none;
-  }
+/* Question Card Style */
+.card {
+  background-color: #000000;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 8px rgba(189,160,15,0.4);
 }
 
-/* Yeni Slot Container */
-.slot-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.card p {
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #bda00f;
 }
 
-/* Machine Container: 3 Reels Side by Side */
-.machine {
-  display: flex; /* inline-flex'ten flex'e */
-  margin: 30px auto;
-  /* Çerçeve rengini fuşya/pembe tonuna çektik */
-  border: 6px solid #ff66ff;
-  border-radius: 15px;
-  padding: 15px;
-  /* Slot makinesi hissi için koyu mor veya koyu tonlara yakın bir renk */
-  background: #3c003c; 
-  /* Hafif pembe/purple ışık efekti */
-  box-shadow: 0 0 20px rgba(255, 102, 255, 0.5);
-}
-
-/* Reel (Each Slot) */
-.reel {
-  width: 120px;       /* Reel width */
-  height: 300px;      /* Visible window height (3 rows x 100px) */
-  overflow: hidden;   /* Hide overflowing content */
-  margin: 0 10px;
-  position: relative; /* For overlay purposes */
-  background: #000;   /* Koyu arka plan */
-  border-radius: 8px;
-  /* Çerçeve rengini de fuşya/pembe tonuna çektik */
-  border: 3px solid #ff66ff;
-}
-
-/* Overlay for Reel: Top Gradient */
-.reel::before {
-  content: "";
-  position: absolute;
-  top: 0; 
-  left: 0;
-  width: 100%; 
-  height: 50px; /* Üst kısmı kaplar */
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0)
-  );
-  backdrop-filter: blur(5px); /* Bulanıklık oranı */
-  z-index: 3; /* İçeriklerin üzerinde */
-}
-
-/* Overlay for Reel: Bottom Gradient */
-.reel::after {
-  content: "";
-  position: absolute;
-  bottom: 0; 
-  left: 0;
-  width: 100%; 
-  height: 50px; /* Alt kısmı kaplar */
-  pointer-events: none;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0)
-  );
-  backdrop-filter: blur(5px); /* Bulanıklık oranı */
-  z-index: 3; /* İçeriklerin üzerinde */
-}
-
-/* Opacity ve Filter ile Üst/Alt Resimleri Bulanıklaştırma */
-.reel-content img:nth-child(-n+2), /* İlk iki resim */
-.reel-content img:nth-last-child(-n+2) /* Son iki resim */ {
-  opacity: 0.5;
-  filter: blur(2px);
-}
-
-/* Reel Content: Vertical Column */
-.reel-content {
-  position: absolute;
-  top: 0; 
-  left: 0;
-  width: 100%;
-  transition: top 0.1s linear;
-}
-
-/* Each Image in Reel */
-.reel-content img {
+label {
   display: block;
-  width: 120px;   /* Full reel width */
-  height: 100px;  /* Each row 100px */
-  object-fit: cover; /* Maintain aspect ratio */
-  border-bottom: 1px solid #555;
+  margin: 5px 0;
+  cursor: pointer;
+  color: #fff;
 }
 
-/* Spin Button Styling */
-.spin-button {
-  padding: 15px 30px;
-  font-size: 24px; /* Daha büyük yazı */
-  /* Buton rengini fuşya/pembe */
-  background-color: #ff66ff;
-  color: #000; /* Kontrast için siyah yazı */
+/* Button Container */
+.btn-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Submit / Restart Buttons */
+.submit-btn, #restart-btn {
+  padding: 12px 20px;
+  background-color: #bda00f;
+  color: #000000;
   border: none;
   cursor: pointer;
-  border-radius: 10px;
-  margin: 20px 0;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: background-color 0.3s, transform 0.2s;
-  font-weight: bold;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
-/* Spin Button Hover Effects */
-.spin-button:hover:not(:disabled) {
-  background-color: #e24ee2; /* Hover rengini biraz koyulaştırılmış fuşya */
-  transform: scale(1.05);
-}
-
-/* Spin Button Active (Pressed) */
-.spin-button:active {
-  transform: scale(0.95);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-}
-
-/* Spin Button Disabled State */
-.spin-button:disabled {
-  background-color: #999;
-  cursor: not-allowed;
-}
-
-/* Result Text */
-.result-message {
-  font-size: 24px; /* Daha büyük yazı */
-  font-weight: bold;
-  margin-top: 10px;
-  min-height: 40px; /* Daha fazla alan */
-  /* Metin rengini fuşya yaparak dikkat çekiyoruz */
-  color: #ff66ff;
-  text-shadow: 1px 1px 2px #000;
-}
-
-/* Jackpot Mesajını Büyütme */
-#result.jackpot {
-  font-size: 36px; /* Jackpot mesajını daha büyük yap */
-  /* Jackpot rengini kırmızı yerine parlak pembe-kırmızı geçişi */
-  color: #ff003c;
-  text-shadow: 2px 2px 4px #000;
-}
-
-/* Creator Information Styling */
-#creator {
-  font-size: 16px;
-  margin-top: 10px;
-  color: #ddd; /* Daha açık gri */
-}
-
-/* Gold Animation Styles (Rengi fuşya/pembe yaptık, isim korundu) */
-.gold-animation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 20;
-}
-
-.gold-particles {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.gold-particle {
-  position: absolute;
-  /* Altın yerine fuşya için radyal gradyan */
-  background: radial-gradient(circle, #ff66ff 60%, #ff66ff 100%);
-  border-radius: 50%;
+.submit-btn:hover, #restart-btn:hover {
   opacity: 0.8;
-  animation: fall 3.5s linear forwards; /* Animasyon süresini koruduk */
 }
 
-/* Animasyonun sürekliliğini sağlamak için her parçacığın animasyon süresi farklı olabilir */
-@keyframes fall {
-  0% {
-    transform: translateY(-100px) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(720deg); /* Daha fazla dönüş */
-    opacity: 0;
-  }
+/* Creator Info (Small Text) */
+.small-creator {
+  margin-top: 8px;
+  font-size: 0.8rem; 
+  color: #bda00f;
 }
 
-/* Activate Gold Animation */
-.gold-animation.active .gold-particle {
-  animation: fall 3.5s linear forwards; 
+/* Modal (Popup) Style */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 999; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.8); 
 }
 
-/* Responsive Design için parçacık boyutlarını ayarlama */
-@media (max-width: 600px) {
-  .gold-particle {
-    width: 10px; 
-    height: 10px;
-  }
+.modal-content {
+  position: relative;
+  margin: 10% auto;
+  background-color: #000000;
+  width: 90%;
+  max-width: 400px;
+  padding: 30px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(189,160,15,0.5);
 }
 
-/* Enhanced Spin Button Animation (Optional) */
-.spin-button.animate-spin {
-  animation: spinButton 1s infinite;
+/* Modal Close Button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+  color: #bda00f;
+  transition: color 0.3s;
 }
 
-@keyframes spinButton {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(5deg); }
-  50% { transform: rotate(-5deg); }
-  75% { transform: rotate(5deg); }
-  100% { transform: rotate(0deg); }
+.close-btn:hover {
+  color: #fff;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-  .reel {
-    width: 80px;
-    height: 240px; /* 3 rows x 80px */
-  }
+/* Result Image Style */
+#result-image {
+  width: 100%;
+  max-width: 250px;
+  margin-top: 20px;
+  border: 2px solid #bda00f;
+  border-radius: 10px;
+}
 
-  .reel-content img {
-    width: 80px;
-    height: 80px;
-  }
-
-  .spin-button {
-    padding: 10px 20px;
-    font-size: 20px; /* Responsive yazı boyutu */
-  }
-
-  .result-message {
-    font-size: 20px;
-    min-height: 30px;
-  }
-
-  #result.jackpot {
-    font-size: 28px;
-  }
-
-  #creator {
-    font-size: 14px;
-  }
-
-  .gold-particle {
-    width: 15px;
-    height: 15px;
-  }
-
-  .slot-title {
-    font-size: 36px; /* Responsive başlık boyutu */
-  }
-
-  .machine {
-    margin: 20px auto;
-    padding: 10px;
-  }
+/* Result Message Style */
+.result-message {
+  margin-top: 15px;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #bda00f;
 }
